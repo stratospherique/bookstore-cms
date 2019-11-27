@@ -4,7 +4,6 @@
         "es6": true,
         "jest": true
     },
-    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -30,6 +29,12 @@
             }
         ],
         "import/no-unresolved": "off",
-        "no-shadow": "off"
+        "no-shadow": "off",
+        "import/no-named-as-default": 0,
+        "import/no-named-as-default-member": 0,
+        "react/prop-types": 0,
+        "import/no-mutable-exports": 0,
+        "jsx-a11y/label-has-associated-control": 0,
+        "no-class-assign": 0
     }
 }

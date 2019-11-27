@@ -6,16 +6,16 @@ const booksReducer = (state = [], action) => {
     case CREATE_BOOK:
       return [
         ...state,
-        Object.assign({}, action.book)
+        { ...action.book },
       ];
     case REMOVE_BOOK:
       return [
         state.slice(0, action.index),
-        state.slice(action.index + 1)
-      ]
+        state.slice(action.index + 1),
+      ];
     default:
-      return state
+      return state;
   }
-}
+};
 
 export default booksReducer;
