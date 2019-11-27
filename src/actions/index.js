@@ -1,13 +1,11 @@
-export const creatBookAction = (book) => {
-  return {
-    type: 'CREATE_BOOK',
-    book: book
-  }
-}
+const creatBookAction = (book) => ({
+  type: 'CREATE_BOOK',
+  book,
+});
 
-export const removeBookAction = (book) => {
-  return {
-    type: 'REMOVE_BOOK',
-    book: book.id
-  }
-}
+const removeBookAction = (book) => ({
+  type: 'REMOVE_BOOK',
+  id: book.id,
+});
+
+export { creatBookAction, removeBookAction };

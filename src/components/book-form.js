@@ -2,28 +2,30 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
 
-const categories = ["Action", "Biography", "History", "Horror", "Kids", "Learning", "Sci-Fi"];
+const categories = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
 let identifier = 0;
 
 class BookForm extends React.Component {
   handleFormSubmit = (e) => {
     e.preventDefault();
     const book = {
-      id: identifier++,
+      id: identifier,
       title: this.titleInput.value,
-      category: categories[this.categoryValue.options.selectedIndex]
-    }
+      category: categories[this.categoryValue.options.selectedIndex],
+    };
+    identifier++;
     this.props.handleAdding(book);
     this.titleInput.value = '';
     this.categoryValue.options.selectedIndex = 0;
   }
+
   render() {
 
     return (
       <form>
         <div>
           <label htmlFor="title">Book Title</label>
-          <input ref={node => { this.titleInput = node }} type="text" id="title" />
+          <input ref={(node) => { this.titleInput = node; }} type="text" id="title" />
         </div>
         <div>
           <label htmlFor="ctg">Book Title</label>
@@ -35,6 +37,7 @@ class BookForm extends React.Component {
       </form>
     )
   }
+
 }
 
 // connect bookForm component to dispatch
