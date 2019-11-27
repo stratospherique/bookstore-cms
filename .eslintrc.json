@@ -35,6 +35,8 @@
         "react/prop-types": "off",
         "import/no-mutable-exports": "off",
         "jsx-a11y/label-has-associated-control": "off",
-        "no-class-assign": "off"
+        "no-class-assign": "off",
+        "jsx-a11y/label-has-for": "off",
+        "arrow-parens": "off"
     }
 }
