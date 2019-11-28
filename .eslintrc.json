@@ -1,34 +1,42 @@
 {
-  "env": {
-    "browser": true,
-    "es6": true,
-    "jest": true
-  },
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jest": true
     },
-    "ecmaVersion": 2018,
-    "sourceType": "module"
-  },
-  "extends": [
-    "airbnb",
-    "plugin:react/recommended"
-  ],
-  "plugins": [
-    "react"
-  ],
-  "rules": {
-    "react/jsx-filename-extension": [
-      "warn",
-      {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
-      }
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "extends": [
+        "airbnb",
+        "plugin:react/recommended"
     ],
-    "import/no-unresolved": "off",
-    "no-shadow": "off"
-  }
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "react/jsx-filename-extension": [
+            "warn",
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ],
+        "import/no-unresolved": "off",
+        "no-shadow": "off",
+        "import/no-named-as-default": "off",
+        "import/no-named-as-default-member": "off",
+        "react/prop-types": "off",
+        "import/no-mutable-exports": "off",
+        "jsx-a11y/label-has-associated-control": "off",
+        "no-class-assign": "off",
+        "jsx-a11y/label-has-for": "off",
+        "arrow-parens": "off"
+    }
 }
