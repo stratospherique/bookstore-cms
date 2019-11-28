@@ -8,18 +8,17 @@ let identifier = 0;
 class BookForm extends React.Component {
   constructor(props) {
     super(props);
-    //this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.state = {
       title: '',
       category: 'Action',
-    }
+    };
   }
 
   handleFormSubmit = (e) => {
     e.preventDefault();
     const { handleAdding } = this.props;
     handleAdding({ id: identifier, ...this.state });
-    identifier++;
+    identifier += 1;
     this.setState({
       title: '',
       category: 'Action',
@@ -34,32 +33,33 @@ class BookForm extends React.Component {
       case 'input':
         this.setState((state) => ({
           title: target.value,
-          category: state.category
+          category: state.category,
         }));
         break;
       default:
         this.setState((state) => ({
           title: state.title,
-          category: target.value
+          category: target.value,
         }));
         break;
     }
   }
 
   render() {
+    const { handleChange, state: { title, category } } = this;
     return (
       <form onSubmit={this.handleFormSubmit}>
         <div>
           <label htmlFor="title">Book Title</label>
-          <input onChange={this.handleChange} type="text" id="title" value={this.state.title} />
+          <input onChange={handleChange} type="text" id="title" value={title} />
         </div>
         <div>
           <label htmlFor="ctg">Book Category</label>
-          <select name="category" id="ctg" onChange={this.handleChange} value={this.state.category}>
+          <select name="category" id="ctg" onChange={handleChange} value={category}>
             {categories.map((item) => <option key={item} value={item}>{item}</option>)}
           </select>
         </div>
-        <button type="submit" > Submit </button>
+        <button type="submit"> Submit </button>
       </form>
     );
   }

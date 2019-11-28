@@ -15,7 +15,9 @@ let BookList = ({ books, handleRemoveBook }) => (
         </tr>
       </thead>
       <tbody>
-        {books.length > 0 ? books.map((book) => <Book key={book.id} item={book} handleRemoval={handleRemoveBook} />)
+        {books.length > 0 ? books.map((book) => (
+          <Book key={book.id} item={book} handleRemoval={handleRemoveBook} />
+        ))
           : (
             <tr>
               <td>Empty List</td>
@@ -28,13 +30,13 @@ let BookList = ({ books, handleRemoveBook }) => (
 
 // inject store state as props to Booklist component
 const mapStateToProps = (state) => ({
-  books: state.books
+  books: state.books,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   handleRemoveBook: (book) => {
     dispatch(removeBookAction(book));
-  }
+  },
 });
 
 

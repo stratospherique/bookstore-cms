@@ -9,12 +9,11 @@ const booksReducer = (state = [], action) => {
         { ...action.book },
       ];
     case REMOVE_BOOK:
-      const index = state.findIndex((value) => value.id === action.id)
+      const index = state.findIndex((value) => value.id === action.id);
       return state.slice(0, index).concat(state.slice(index + 1));
     default:
       return state;
   }
-
 };
 
 export default booksReducer;
