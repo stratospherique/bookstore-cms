@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Book from '../components/book';
+import { removeBookAction } from '../actions/index';
 
-let BookList = ({ books }) => (
+let BookList = ({ books, handleRemoveBook }) => (
   <div>
     <table>
       <thead>
@@ -10,10 +11,11 @@ let BookList = ({ books }) => (
           <th>BookID</th>
           <th>Title</th>
           <th>Category</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        {books.length > 0 ? books.map((book) => <Book key={book.id} item={book} />)
+        {books.length > 0 ? books.map((book) => <Book key={book.id} item={book} handleRemoval={handleRemoveBook} />)
           : (
             <tr>
               <td>Empty List</td>
@@ -26,9 +28,16 @@ let BookList = ({ books }) => (
 
 // inject store state as props to Booklist component
 const mapStateToProps = (state) => ({
-  books: state.books,
+  books: state.books
 });
 
-BookList = connect(mapStateToProps, null)(BookList);
+const mapDispatchToProps = (dispatch) => ({
+  handleRemoveBook: (book) => {
+    dispatch(removeBookAction(book));
+  }
+});
+
+
+BookList = connect(mapStateToProps, mapDispatchToProps)(BookList);
 
 export default BookList;
