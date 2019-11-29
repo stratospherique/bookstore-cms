@@ -28,9 +28,16 @@ let BookList = ({ books, handleRemoveBook }) => (
   </div>
 );
 
+const displayableBooks = (books, theFilter) => {
+  if (theFilter === 'All') {
+    return books;
+  }
+  return books.filter(item => item.category === theFilter);
+}
+
 // inject store state as props to Booklist component
 const mapStateToProps = (state) => ({
-  books: state.books,
+  books: displayableBooks(state.books, state.filter),
 });
 
 const mapDispatchToProps = (dispatch) => ({

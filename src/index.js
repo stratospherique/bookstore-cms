@@ -27,7 +27,8 @@ const initialState = {
       title: 'The Final Problem',
       category: 'Action',
     }
-  ]
+  ],
+  filter: 'All',
 };
 
 
