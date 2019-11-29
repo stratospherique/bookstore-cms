@@ -5,20 +5,18 @@ import { changeFilterAction } from '../actions/index';
 const filterOptions = ['All', 'Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
 
 class CategoryFilter extends React.Component {
-
   handleFilterChange = (e) => {
     const { handleFiltering } = this.props;
     handleFiltering(e.target.value);
   }
+
   render() {
     return (
       <div>
         <select onChange={this.handleFilterChange}>
-          {filterOptions.map((filter, index) => {
-            return (
-              <option key={index} value={filter}>{filter}</option>
-            )
-          })}
+          {filterOptions.map((filter) => (
+            <option key={filter} value={filter}>{filter}</option>
+          ))}
         </select>
       </div>
     );
@@ -28,8 +26,8 @@ class CategoryFilter extends React.Component {
 const mapDispatchToProps = (dispatch) => ({
   handleFiltering: (filter) => {
     dispatch(changeFilterAction(filter));
-  }
-})
+  },
+});
 
 CategoryFilter = connect(null, mapDispatchToProps)(CategoryFilter);
 

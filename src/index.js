@@ -26,7 +26,7 @@ const initialState = {
       id: 3,
       title: 'The Final Problem',
       category: 'Action',
-    }
+    },
   ],
   filter: 'All',
 };
@@ -38,4 +38,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root'),
 );
-

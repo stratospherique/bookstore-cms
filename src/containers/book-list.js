@@ -33,7 +33,7 @@ const displayableBooks = (books, theFilter) => {
     return books;
   }
   return books.filter(item => item.category === theFilter);
-}
+};
 
 // inject store state as props to Booklist component
 const mapStateToProps = (state) => ({

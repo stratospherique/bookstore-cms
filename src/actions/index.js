@@ -10,7 +10,7 @@ const removeBookAction = (book) => ({
 
 const changeFilterAction = (filter) => ({
   type: 'CHANGE_FILTER',
-  filter
-})
+  filter,
+});
 
 export { creatBookAction, removeBookAction, changeFilterAction };

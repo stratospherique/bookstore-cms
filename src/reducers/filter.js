@@ -7,6 +7,6 @@ const filterReducer = (state = 'ALL', action) => {
     default:
       return state;
   }
-}
+};
 
 export default filterReducer;
