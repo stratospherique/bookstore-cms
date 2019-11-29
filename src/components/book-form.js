@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions/index';
+import { creatBookAction } from '../actions/index';
 
 const categories = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
 let identifier = 0;
@@ -8,37 +8,58 @@ let identifier = 0;
 class BookForm extends React.Component {
   constructor(props) {
     super(props);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.state = {
+      title: '',
+      category: 'Action',
+    };
   }
 
-  handleFormSubmit(e) {
+  handleFormSubmit = (e) => {
     e.preventDefault();
     const { handleAdding } = this.props;
-    const book = {
-      id: identifier,
-      title: this.titleInput.value,
-      category: categories[this.categoryValue.options.selectedIndex],
-    };
+    handleAdding({ id: identifier, ...this.state });
     identifier += 1;
-    handleAdding(book);
-    this.titleInput.value = '';
-    this.categoryValue.options.selectedIndex = 0;
+    this.setState({
+      title: '',
+      category: 'Action',
+    });
+    e.target.reset();
+  }
+
+  handleChange = (e) => {
+    e.persist();
+    const { target } = e;
+    switch (target.localName) {
+      case 'input':
+        this.setState((state) => ({
+          title: target.value,
+          category: state.category,
+        }));
+        break;
+      default:
+        this.setState((state) => ({
+          title: state.title,
+          category: target.value,
+        }));
+        break;
+    }
   }
 
   render() {
+    const { handleChange, state: { title, category } } = this;
     return (
-      <form>
+      <form onSubmit={this.handleFormSubmit}>
         <div>
           <label htmlFor="title">Book Title</label>
-          <input ref={(node) => { this.titleInput = node; }} type="text" id="title" />
+          <input onChange={handleChange} type="text" id="title" value={title} />
         </div>
         <div>
-          <label htmlFor="ctg">Book Title</label>
-          <select name="category" id="ctg" ref={(node) => { this.categoryValue = node; }}>
+          <label htmlFor="ctg">Book Category</label>
+          <select name="category" id="ctg" onChange={handleChange} value={category}>
             {categories.map((item) => <option key={item} value={item}>{item}</option>)}
           </select>
         </div>
-        <button type="submit" onClick={this.handleFormSubmit}> Submit </button>
+        <button type="submit"> Submit </button>
       </form>
     );
   }
@@ -47,7 +68,7 @@ class BookForm extends React.Component {
 // connect bookForm component to dispatch
 const mapDispatchToProps = (dispatch) => ({
   handleAdding: (book) => {
-    dispatch(actions.creatBookAction(book));
+    dispatch(creatBookAction(book));
   },
 });
 
