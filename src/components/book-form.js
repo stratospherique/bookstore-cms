@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { creatBookAction } from '../actions/index';
 
 const categories = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
-let identifier = 0;
+let identifier = 4;
 
 class BookForm extends React.Component {
   constructor(props) {

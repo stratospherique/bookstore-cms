@@ -8,4 +8,9 @@ const removeBookAction = (book) => ({
   id: book.id,
 });
 
-export { creatBookAction, removeBookAction };
+const changeFilterAction = (filter) => ({
+  type: 'CHANGE_FILTER',
+  filter,
+});
+
+export { creatBookAction, removeBookAction, changeFilterAction };
