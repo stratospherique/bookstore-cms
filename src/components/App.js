@@ -9,8 +9,8 @@ const App = () => (
   <InnerRoot >
     <Container>
       <Navigation />
-      <BooksTable />
       <CategoryFilter />
+      <BooksTable />
       <BookForm />
     </Container>
   </InnerRoot>

@@ -49,3 +49,10 @@ table {
 
 /* Fonts */
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800&display=swap');
+
+*,
+*::after,
+*::before {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}

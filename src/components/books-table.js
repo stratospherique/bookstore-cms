@@ -1,21 +1,14 @@
 import React from 'react';
 import BookList from '../containers/book-list';
+import { TableContainer, ListTable } from './styled-components';
 
 const BookTable = () => {
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>BookID</th>
-            <th>Title</th>
-            <th>Category</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
+    <TableContainer>
+      <ListTable>
         <BookList />
-      </table>
-    </div>
+      </ListTable>
+    </TableContainer>
   )
 }
 
