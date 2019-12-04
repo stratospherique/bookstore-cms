@@ -53,7 +53,8 @@ class BookForm extends React.Component {
         <StyledText
           size="big"
           color="#3c6382"
-        >Add a Book
+        >
+          Add a Book
         </StyledText>
         <form onSubmit={this.handleFormSubmit}>
           <input onChange={handleChange} type="text" className="title" value={title} placeholder="Title" />

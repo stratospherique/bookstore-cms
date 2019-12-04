@@ -7,8 +7,11 @@ const Book = ({ item, handleRemoval }) => {
     <tr>
       <td>
         <StyledText color="#4386bf">{book.category}</StyledText>
-        <StyledText important={true} color={'#121212'} size={'big'}>{book.title}</StyledText>
-        <StyledText color="#121212" size="small"><em>Id:</em>{book.id}</StyledText>
+        <StyledText important="true" color="#121212" size="big">{book.title}</StyledText>
+        <StyledText color="#121212" size="small">
+          <em>Id:</em>
+          {book.id}
+        </StyledText>
       </td>
       <td>
         <Button

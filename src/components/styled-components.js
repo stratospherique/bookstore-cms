@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import React from 'react';
 
 const colors = {
@@ -7,7 +7,7 @@ const colors = {
   mainColor: '#0190FF',
   color_1: '#0190AD',
   color_2: '#a29bfe',
-}
+};
 
 const Container = styled.div`
   background-color: ${colors.innerBackground};
@@ -122,16 +122,16 @@ const ListTable = styled.table`
   }
 `;
 
-const Btn = ({ className, type, handleClick, text }) => (
-  <button className={className} type={type} onClick={handleClick}>
-    {text}
-  </button>
-)
+const Btn = ({
+  className, type, handleClick, text,
+}) => (
+    <button className={className} type={type} onClick={handleClick}>
+      {text}
+    </button>
+  );
 
 const Button = styled(Btn)`
-  ${props => {
-    return props.size && props.size === 'big' ? 'padding: 1em;' : props.size === 'small' ? 'padding: .25em' : 'padding: .5em;';
-  }}
+  ${props => props.size && props.size === 'big' ? 'padding: 1em;' : props.size === 'small' ? 'padding: .25em' : 'padding: .5em;'}
   border-radius: .5rem;
   background-color: ${props => props.bgColor || colors.color_1};
   color: ${props => props.color || colors.color_1};
@@ -234,4 +234,6 @@ const FilterContainer = styled.div`
     }
   `;
 
-export { Nav, Container, InnerRoot, Logo, NavElements, Link, TableContainer, ListTable, Button, StyledText, FormContainer, FilterContainer }
+export {
+  Nav, Container, InnerRoot, Logo, NavElements, Link, TableContainer, ListTable, Button, StyledText, FormContainer, FilterContainer,
+};
