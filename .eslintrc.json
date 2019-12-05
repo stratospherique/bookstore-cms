@@ -40,6 +40,13 @@
         "jsx-a11y/label-has-for": "off",
         "arrow-parens": "off",
         "react/jsx-closing-bracket-location": "off",
-        "no-case-declarations": "off"
+        "no-case-declarations": "off",
+        "jsx-a11y/anchor-is-valid": "off",
+        "react/button-has-type": "off",
+        "react/jsx-indent": "off",
+        "no-confusing-arrow": "off",
+        "no-nested-ternary": "off",
+        "indent": "off",
+        "max-len": "off"
     }
 }

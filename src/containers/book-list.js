@@ -4,28 +4,16 @@ import Book from '../components/book';
 import { removeBookAction } from '../actions/index';
 
 let BookList = ({ books, handleRemoveBook }) => (
-  <div>
-    <table>
-      <thead>
+  <tbody>
+    {books.length > 0 ? books.map((book) => (
+      <Book key={book.id} item={book} handleRemoval={handleRemoveBook} />
+    ))
+      : (
         <tr>
-          <th>BookID</th>
-          <th>Title</th>
-          <th>Category</th>
-          <th>Actions</th>
+          <td>Empty List</td>
         </tr>
-      </thead>
-      <tbody>
-        {books.length > 0 ? books.map((book) => (
-          <Book key={book.id} item={book} handleRemoval={handleRemoveBook} />
-        ))
-          : (
-            <tr>
-              <td>Empty List</td>
-            </tr>
-          )}
-      </tbody>
-    </table>
-  </div>
+      )}
+  </tbody>
 );
 
 const displayableBooks = (books, theFilter) => {
