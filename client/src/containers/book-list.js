@@ -6,9 +6,9 @@ import { removeBookAction, getBooksAction } from '../actions/index';
 
 class BookList extends React.Component {
 
-
   UNSAFE_componentWillMount() {
-    this.props.getBooks();
+    const { getBooks } = this.props;
+    getBooks();
   }
 
   render() {
@@ -37,17 +37,15 @@ const displayableBooks = (books, theFilter) => {
 };
 
 // inject store state as props to Booklist component
-const mapStateToProps = (state) => {
-  return {
-    books: displayableBooks(state.books, state.filter),
-  };
-};
+const mapStateToProps = (state) => ({
+  books: displayableBooks(state.books, state.filter),
+});
 
 const mapDispatchToProps = (dispatch) => ({
   handleRemoveBook: (book) => {
     axios.delete('api/v1/books/' + book.id).then(response => {
       dispatch(removeBookAction(book));
-    })
+    });
   },
   getBooks: () => {
     axios.get('api/v1/books').then(response => {
