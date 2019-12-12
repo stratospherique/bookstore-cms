@@ -1,13 +1,4 @@
 {
-  "name": "react-and-rails",
-  "engines": {
-    "node": "6.3.1"
-  },
-  "scripts": {
-    "build": "cd client && npm install && npm run build && cd ..",
-    "deploy": "cp -a client/build/. public/",
-    "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
-  },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "version": "1.0.0",
   "main": "index.js",
@@ -23,5 +14,14 @@
   "bugs": {
     "url": "https://github.com/stratospherique/bookstore-cms/issues"
   },
-  "homepage": "https://github.com/stratospherique/bookstore-cms#readme"
+  "homepage": "https://github.com/stratospherique/bookstore-cms#readme",
+  "name": "react-and-rails",
+  "engines": {
+    "node": "6.3.1"
+  },
+  "scripts": {
+    "build": "cd client && npm install && npm run build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
+  }
 }
