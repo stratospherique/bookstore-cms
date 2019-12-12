@@ -5,7 +5,6 @@ import Book from '../components/book';
 import { removeBookAction, getBooksAction } from '../actions/index';
 
 class BookList extends React.Component {
-
   UNSAFE_componentWillMount() {
     const { getBooks } = this.props;
     getBooks();
@@ -53,7 +52,7 @@ const mapDispatchToProps = (dispatch) => ({
         const { id, title, author, category } = item;
         return { id, title, author, category };
       })));
-    })
+    });
   },
 });
 
