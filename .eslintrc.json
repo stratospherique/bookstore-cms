@@ -47,6 +47,10 @@
         "no-confusing-arrow": "off",
         "no-nested-ternary": "off",
         "indent": "off",
-        "max-len": "off"
+        "max-len": "off",
+        "camelcase": "off",
+        "no-unused-vars": "off",
+        "prefer-template": "off",
+        "object-curly-newline": "off"
     }
 }
